@@ -6,7 +6,7 @@ He's also a CTF Enthusiast, HTB Player and a happy hoomans.
 
 ### How does he speak?
 
-Currently, Aseng are fluently speaking in these languages ~
+Currently, Aseng is fluently speaking in these languages ~
 ```
 #---------- SNAKES ----------#
 
