@@ -3,7 +3,7 @@
 Aseng is a person who `weirdly` puts himself wandering in an Information Security. He loves to dig digital-cases especially those which are related into DFIR, Reverse-Engineering, and also some Exploit Developments.
 He's also a CTF Enthusiast, HTB Player and a happy hoomans.
 
-<img src="https://github.com/as3ng/aseng/blob/main/images/astronaut.png" />
+<img src="images/astronaut.png" />
 
 ### How does he speak?
 
