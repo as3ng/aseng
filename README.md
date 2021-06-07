@@ -8,19 +8,21 @@ He's also a CTF Enthusiast, HTB Player and a happy hoomans.
 ### How does he speak?
 
 Currently, Aseng is fluently speaking in these languages ~
-```
+```python
 #---------- SNAKES ----------#
 
 import base64
 print(base64.b64decode("SGVsbG8gV29ybGQh"))
-
+```
+```C
 //---------- SEA -------------//
 
 #include<stdio.h>
 int main(){
   printf("Bello!");
  }
- 
+``` 
+ ```assembly
  ;-------- AS-Semble ---------;
  
  BITS 64
@@ -39,7 +41,6 @@ int main(){
     warm_welcome: db "Hai!",10
     len equ $-warm_welcome
  
- ;----------------------------;
 ```
 
 
