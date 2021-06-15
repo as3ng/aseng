@@ -79,7 +79,7 @@ for i in numbers:
 It takes less than 2 minutes to find the respective x's:
 ```bash
 python test.py > test.txt
-cat file.txt| grep FOUND -B 4
+cat test.txt| grep FOUND -B 4
 ('1', '3', '3', '8', '5', '8')
 ('1', '3', '3', '8', '5', '9')
 ('1', '3', '3', '8', '6', '0')
