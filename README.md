@@ -48,5 +48,5 @@ int main(){
 
 Without any further ado, shall we visit my own Museum?
 
-* <a href="https://github.com/as3ng/aseng/blob/main/writeups/test.md">CTF Writeups</a>
-* <a href="https://github.com/as3ng/aseng/blob/main/Pentesting_Journey/test.md">Pentesting Journey</a>
+* <a href="https://github.com/as3ng/aseng/blob/main/writeups/test.html">CTF Writeups</a>
+* <a href="https://github.com/as3ng/aseng/blob/main/Pentesting_Journey/test.html">Pentesting Journey</a>
