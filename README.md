@@ -48,5 +48,5 @@ int main(){
 
 Without any further ado, shall we visit my own Museum?
 
-* [CTF Writeups](https://github.com/as3ng/aseng/blob/main/writeups/test.md)
-* [Pentesting Journey](https://github.com/as3ng/aseng/blob/main/Pentesting_Journey/test.md)
+* [CTF Writeups](https://github.com/as3ng/aseng/blob/main/writeups/test.html)
+* [Pentesting Journey](https://github.com/as3ng/aseng/blob/main/Pentesting_Journey/test.html)
