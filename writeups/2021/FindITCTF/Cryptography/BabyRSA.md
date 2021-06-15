@@ -15,7 +15,7 @@ N = p*q
 e = 0x10001 #65537
 N_masked = list(str(N))
 for _ in range(6):
-N_masked[getRandomRange(0, len(N_masked))] = 'x' #This part will replace certain number from N with 'x'
+N_masked[getRandomRange(0, len(N_masked))] = 'x' #This part will replace certain number randomly from N with 'x'
 N_masked = "".join(N_masked)
 print(f"N_masked = {N_masked}")
 C = [pow(ord(c), e, N)>>1 for c in FLAG] #RSA Algorithm
