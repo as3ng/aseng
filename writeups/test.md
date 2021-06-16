@@ -2,7 +2,7 @@
 
 ## Intoduction
 Have you ever played Capture the Flag before?
-The name could be very tivial when it comes into gamers thingy, yet it's different altough
+The name could be very trivial when it comes into gamers thingy, yet it's different altough
 I'd consider CTF as an E-Sport Games!
 
 <img src="images/Astrono.png" />
@@ -12,6 +12,8 @@ a vulnerability in a simulated-system which are designed to have a certain vulns
 it's not always about finding vulnerabilities or exploiting the system as there are some challenges which are required
 to be analyzed in order to find the `flag`.
 The `flag` format sometimes has a prefix of the CTF Organizer's name followed by some alphanumerical strings.
+<br>
+
 The game's divided into certain categories:
 * Web Exploitation
 * Binary Exploitation
