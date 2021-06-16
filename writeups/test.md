@@ -1,4 +1,4 @@
-# Capture The Flag
+# :triangular_flag_on_post: Capture The Flag
 
 ## Intoduction
 Have you ever played Capture the Flag before?
@@ -15,13 +15,13 @@ The `flag` format sometimes has a prefix of the CTF Organizer's name followed by
 <br>
 
 The game's divided into certain categories:
-* Web Exploitation
-* Binary Exploitation
-* Reverse Engineering
-* Forensics
-* Cryptography
-* OSINT
-* Misc
+* Web Exploitation :computer:
+* Binary Exploitation :one: :zero:
+* Reverse Engineering :beetle:
+* Forensics :monocle_face:	
+* Cryptography :infinity:	
+* OSINT :detective:	
+* Misc :zap:	
 
 At the end, the players may make a writeups which contains the progress on how to solve the
 certain challenges that were given.
