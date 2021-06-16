@@ -9,7 +9,7 @@ dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2,
 BuildID[sha1]=ced3b222650d3d443b6c26de0f078ad7032730db, for GNU/Linux
 3.2.0, with debug_info, not stripped
 ```
-<img src="Reverse_Engineering/images/med1.png" />
+<img src="images/med1.png" />
 
 This is my first time in reversing this type so we can load them directly
 and disassembly the binary to IDA.
@@ -21,7 +21,7 @@ As IDA has listed all the functions for us and the binary's luckily
 not stripped. We can conclude that we're dealing with **vala** GUI program.
 <br>
 
-<img src="Reverse_Engineering/images/med1_asm.png" />
+<img src="images/med1_asm.png" />
 
 There's `_vala_main` and `main` function. If we inspect the function further,
 there are lots of initiated functions that are required to construct the GUI.
@@ -44,7 +44,7 @@ jmp short locret_2CFB
 * ## Decompiling the Binary
 Here's what happen in the input validation's function:
 
-<img src="Reverse_Engineering/images/med1_asm_1.png" />
+<img src="images/med1_asm_1.png" />
 
 From the image above, our input will be compared to the data that resides in
 `MED2_WINDOW_sice` variable and there are also some attributes which are used:
@@ -56,7 +56,7 @@ From the image above, our input will be compared to the data that resides in
 Going back to the function lists, we can see the value of the `self->priv->key`
 from the `med1_window_instance_init`:
 
-<img src="Reverse_Engineering/images/med1_asm_2.png" />
+<img src="images/med1_asm_2.png" />
 
 It turns out that the xor algorithm is re-implemented again in this challenge but
 with different key, which is 70.
