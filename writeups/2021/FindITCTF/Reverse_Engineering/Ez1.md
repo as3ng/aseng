@@ -88,7 +88,7 @@ call _D3app9readInputFZv
 _Dmain endp
 ```
 
-<img src="Reverse_Engineering/images/asm_ez1.png" />
+<img src="images/asm_ez1.png" />
 From the tree-view above, there's a referenced strings `sice. got flag` which then may
 be concluded as the objective of getting the flag. We can do further analysis by analyzing
 from the reversed-tree view, as known as **backtracking analysis**.
@@ -104,7 +104,7 @@ There's also `repe cmpsb` instruction which compares the strings.<br>
 Here we can see the decompiled part from the `_D3app9readInputFZv`:
 <br>
 
-<img src="Reverse_Engineering/images/asm_ez1_1.png" />
+<img src="images/asm_ez1_1.png" />
 
 From the image above, we know that there's a XOR algorithm implemented in the program.
 There are also additional attributes which are used:
