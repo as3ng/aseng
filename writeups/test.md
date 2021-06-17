@@ -1,6 +1,6 @@
 # Capture The Flag
 
-## Intoduction
+## Introduction
 Have you ever played Capture the Flag before?
 The name could be very trivial when it comes into gamers thingy, yet it's different altough
 I'd consider CTF as an E-Sport Games!
