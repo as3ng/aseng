@@ -1,0 +1,8 @@
+version: '3'
+services:
+  phishy:
+    build: .
+    working_dir: /home/phishy
+    container_name: phishy
+    ports:
+      - "42069:42069"
