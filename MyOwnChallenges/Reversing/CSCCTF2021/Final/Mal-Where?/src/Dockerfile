@@ -18,6 +18,5 @@ COPY static/images/googleavatar.png /home/phishy/static/images/googleavatar.png
 
 WORKDIR /home/phishy
 RUN chown -R root:phishy /home/phishy
-RUN chmod +x ./malserver.sh
 
 CMD ["flask","run","--host","0.0.0.0","-p","42069"]
