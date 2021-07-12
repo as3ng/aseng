@@ -5,3 +5,11 @@ This repo aims to be my hand-made challenges so you can try out and solve them b
 Most of my challenges would be Reverse Engineering and Digital Forensics, so I hope you had
 a lot of fun in these streams.
 
+All the flag's prefix are followed by the name of CTF's Organizer
+i.e
+`CSCCTF` would be `CSCCTF{.*}`
+
+
+Feel free to reach me out on Telegram: 
+<br>
+**@VeerMouth**
