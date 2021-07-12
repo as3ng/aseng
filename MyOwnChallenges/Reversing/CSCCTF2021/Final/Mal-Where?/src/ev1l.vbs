@@ -1,0 +1,1 @@
+Dim shell : Set shell = WScript.CreateObject("WScript.Shell") : wallpaper = "%TEMP%\5kr1n.png" : shell.RegWrite "HKCU\Control Panel\Desktop\Wallpaper", wallpaper, "REG_SZ" : shell.Run "%windir%\System32\RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters"
