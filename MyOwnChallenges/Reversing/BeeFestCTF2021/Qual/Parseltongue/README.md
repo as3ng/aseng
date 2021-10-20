@@ -1,0 +1,176 @@
+# Challenge Description
+
+<img src="images/image1.png" />
+<br>
+
+We're given two files which consist of a broken (encrypted) image and a Python
+Bytecode File.
+If you are not familiar in reading the Python Bytecodes, there are a lot
+of references of its opcodes which you may take a look from http://vega.lpl.arizona.edu/python/lib/bytecodes.html
+and https://docs.python.org/3/library/dis.html
+
+Referring from the link above, there are also a way to understand how Python code may be interpreted
+and converted to bytecodes by using `dis` python module.
+
+By taking a look at the Bytecodes,
+
+```python
+  5           0 LOAD_GLOBAL              0 (open)
+              3 LOAD_CONST               1 ('flag.png')
+              6 LOAD_CONST               2 ('rb')
+              9 CALL_FUNCTION            2
+             12 SETUP_WITH              19 (to 34)
+             15 STORE_FAST               0 (f)
+
+  6          18 LOAD_FAST                0 (f)
+             21 LOAD_ATTR                1 (read)
+             24 CALL_FUNCTION            0
+             27 STORE_FAST               1 (x)
+             30 POP_BLOCK           
+             31 LOAD_CONST               0 (None)
+        >>   34 WITH_CLEANUP        
+             35 END_FINALLY
+```
+
+We can interpret that this part will open the original image containing the flag.
+
+```python
+
+with open('flag.png','rb') as f:
+	x = f.read()
+```
+
+Continuing to the next part,
+
+```python
+
+  8          36 LOAD_CONST               3 ('beefest')
+             39 STORE_FAST               2 (key)
+
+  9          42 LOAD_CONST               4 ('')
+             45 STORE_FAST               3 (newimage)
+
+ 10          48 LOAD_CONST               5 (0)
+             51 STORE_FAST               4 (c)
+```
+
+This part indicates a declaration of variables that will be used later.
+They can be interpreted as,
+
+```python
+key = 'beefest'
+newimage = ''
+c = 0
+```
+
+The next part will be longer:
+
+```python
+ 11          54 SETUP_LOOP              70 (to 127)
+             57 LOAD_FAST                1 (x)
+             60 GET_ITER            
+        >>   61 FOR_ITER                62 (to 126)
+             64 STORE_FAST               5 (i)
+
+ 12          67 LOAD_FAST                3 (newimage)
+             70 LOAD_GLOBAL              2 (chr)
+             73 LOAD_GLOBAL              3 (ord)
+             76 LOAD_FAST                5 (i)
+             79 CALL_FUNCTION            1
+             82 LOAD_GLOBAL              3 (ord)
+             85 LOAD_FAST                2 (key)
+             88 LOAD_FAST                4 (c)
+             91 LOAD_GLOBAL              4 (len)
+             94 LOAD_FAST                2 (key)
+             97 CALL_FUNCTION            1
+            100 BINARY_MODULO       
+            101 BINARY_SUBSCR       
+            102 CALL_FUNCTION            1
+            105 BINARY_XOR          
+            106 CALL_FUNCTION            1
+            109 INPLACE_ADD         
+            110 STORE_FAST               3 (newimage)
+
+ 13         113 LOAD_FAST                4 (c)
+            116 LOAD_CONST               6 (1)
+            119 INPLACE_ADD         
+            120 STORE_FAST               4 (c)
+            123 JUMP_ABSOLUTE           61
+        >>  126 POP_BLOCK
+```
+
+This part basically sets up for a loop for every bytes in the image
+will be xorred by the key that we've just declared, which is `beefest`.
+How do we know that the image bytes is xorred? We can see that `x` variable
+is loaded to the loop and `BINARY_XOR` is called.
+A counter loop variable (c) is also set and incremented every xorred
+actions.
+
+```python
+
+for i in x:
+	newimage += chr(ord(i) ^ ord(key[c % len(key)]))
+	c += 1
+```
+The image will be compressed and written to the new file which can be retrieved from the
+challenge, `flag.png.enc`.
+
+```python
+ 15     >>  127 LOAD_GLOBAL              5 (zlib)
+            130 LOAD_ATTR                6 (compress)
+            133 LOAD_FAST                3 (newimage)
+            136 CALL_FUNCTION            1
+            139 STORE_FAST               3 (newimage)
+
+ 25         142 LOAD_GLOBAL              0 (open)
+            145 LOAD_CONST               7 ('flag.png.enc')
+            148 LOAD_CONST               8 ('wb')
+            151 CALL_FUNCTION            2
+            154 SETUP_WITH              30 (to 187)
+            157 STORE_FAST               6 (neww)
+
+ 26         160 LOAD_FAST                6 (neww)
+            163 LOAD_ATTR                7 (write)
+            166 LOAD_FAST                3 (newimage)
+            169 CALL_FUNCTION            1
+            172 POP_TOP             
+
+ 27         173 LOAD_FAST                6 (neww)
+            176 LOAD_ATTR                8 (close)
+            179 CALL_FUNCTION            0
+            182 POP_TOP             
+            183 POP_BLOCK           
+            184 LOAD_CONST               0 (None)
+        >>  187 WITH_CLEANUP        
+            188 END_FINALLY         
+            189 LOAD_CONST               0 (None)
+            192 RETURN_VALUE 
+```
+
+We can write the solver reverse-algorithm:
+
+```python
+
+import zlib
+with open("flag.png.enc","rb") as f:
+        x = f.read()
+
+decomp = zlib.decompress(x)
+
+data = ""
+key = "beefest"
+c = 0
+for i in decomp:
+        data += chr(ord(i) ^ ord(key[c % len(key)]))
+        c += 1
+
+with open("flag.orig.png","wb") as w:
+        w.write(data)
+        w.close()
+```
+
+And finally the image will be recovered,
+
+<img src="images/flag.orig.png" />
+<br>
+
