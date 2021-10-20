@@ -1,7 +1,4 @@
-# Challenge Description
-
-<img src="images/image1.png" />
-<br>
+# Parseltongue
 
 We're given two files which consist of a broken (encrypted) image and a Python
 Bytecode File.
