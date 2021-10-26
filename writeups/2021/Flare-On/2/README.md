@@ -7,10 +7,21 @@ is the source of the ransomware, and also some encrypted files.
 The goal is to recover the encrypted files. We can use IDA Pro to decompile the PE and understand
 the logic of the encryption algorithm.
 I used Flare-VM, which you can download it from this awesome repo -> https://github.com/mandiant/flare-vm.
+
 It provides several tools for us to dynamically understand the malware behaviour and other tools which
 may support our reversing activity.
 
 # Static Approach Recon
+
+Disassembling the PE to IDA Pro reveals a total of the functions that are used in the PE is 9 functions, including
+the `entry point`.
+
+<img src="images/image1.png" />
+
+Starting from the very basic approach, I tried to locate a several interesting strings from `String View`, we can see there's
+a "ransom"-like message.
+
+<img src="images/image2.png" />
 
 
 ```assembly
@@ -46,3 +57,7 @@ may support our reversing activity.
 .data:00403000                 db 'Enter the decryption key and press Enter: ',0
 .data:0040370B                 align 4
 ```
+
+It prompts us the decryption key that we need to use in order to decrypt the files. Apart from that, we can analyze the
+source code further:
+
