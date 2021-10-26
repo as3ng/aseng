@@ -59,7 +59,9 @@ a "ransom"-like message.
 ```
 
 It prompts us the decryption key that we need to use in order to decrypt the files. Apart from that, we can analyze the
-source code further:
+source code further.
+
+# Decompiling PE
 
 1) **Entry Point**
 
