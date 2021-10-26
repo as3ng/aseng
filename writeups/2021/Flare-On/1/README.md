@@ -1,6 +1,6 @@
 # Flare-On CTF 8
 
-This year challenges are pretty fun, I only have two days before Flare-On
+This year challenges are pretty fun, yet sadly I only have two days before Flare-On
 events ended so only managed to solve two problems.
 
 The first challenge consists of 1 HTML file with a credential verification. 
