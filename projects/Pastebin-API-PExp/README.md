@@ -25,7 +25,7 @@ The following script is required to get OS Info of the victim, whether it's `Win
 
 ```python
 def osinfo():
-	  poss_plat = {
+    poss_plat = {
       'linux':'Linux',
       'linux1':'Linux',
       'linux2':'Linux',
@@ -35,8 +35,8 @@ def osinfo():
       'darwin':'OS X',
       'os2':'OS X',
       'os2emx':'OS X'
-	}
-	return poss_plat[sys.platform]
+    }
+    return poss_plat[sys.platform]
   ```
   
   In order to retrieve what data that can be retrieved, we need to know how the desired data will be parsed
