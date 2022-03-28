@@ -104,3 +104,5 @@ if (Java.available){
 	console.log("Java is not available yet");
 }
 ```
+## CLI Command
+`frida -U --no-pause -l fridascript.js -f uk.rossmarks.fridalab`
